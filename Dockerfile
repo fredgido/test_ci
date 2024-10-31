@@ -12,6 +12,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY lambda_function.py .
 
-RUN zip -r /build/lambda_package.zip /build/lambda_function.py && \
+RUN zip lambda_package.zip lambda_function.py && \
     cd /usr/local/lib/python3.12/site-packages && \
     zip -ur /build/lambda_package.zip . -x "**/__pycache__/*" "**/*.pyc"
